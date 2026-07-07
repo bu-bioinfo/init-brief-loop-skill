@@ -48,20 +48,21 @@ Each `Expected` item in a brief is tagged `[test]` or `[manual]`:
 
 ## Install
 
-**Manual (recommended for a class):** clone this repo, then copy or
-symlink it into your project's skills directory:
+Download and extract this repo directly into your project's skills
+directory — no Node/npm required:
 
 ```sh
-git clone git@github.com:bu-bioinfo/init-brief-loop-skill.git /tmp/init-brief-loop
-cp -r /tmp/init-brief-loop <your-project>/.claude/skills/init-brief-loop
-rm -rf <your-project>/.claude/skills/init-brief-loop/.git
+mkdir -p <your-project>/.claude/skills/init-brief-loop
+curl -fsSL https://github.com/bu-bioinfo/init-brief-loop-skill/archive/refs/heads/main.tar.gz \
+  | tar -xz -C <your-project>/.claude/skills/init-brief-loop --strip-components=1
 ```
 
-**Via the skills CLI**, if you want it in that ecosystem:
+To update to the latest version later, just re-run the same command —
+it overwrites the existing install.
 
-```sh
-npx skills add bu-bioinfo/init-brief-loop-skill
-```
+(Note: this skill's `SKILL.md` references files under `templates/` in
+the same directory, so installers that fetch only `SKILL.md` — such as
+`npx skills add` — will not work here.)
 
 ## Use
 
