@@ -34,6 +34,18 @@ being built. See `SKILL.md` for exactly what the skill does step by step.
 5. **Commit** — one commit per session, `brief-log.md` staged alongside the
    changed files, using [Conventional Commits](https://www.conventionalcommits.org/).
 
+Each `Expected` item in a brief is tagged `[test]` or `[manual]`:
+
+- **`[test]`** — the behavior is critical enough to need an objective
+  pass/fail check (e.g. "filters to exactly N rows"). The student
+  implements and runs the test separately; Claude never runs one itself
+  or claims to have.
+- **`[manual]`** — requires domain-specific knowledge or judgment that
+  can't be delegated to an LLM (e.g. "this plot is biologically
+  plausible"). Claude lists these as pending student review in the log
+  draft — it doesn't assert or describe the outcome on the student's
+  behalf.
+
 ## Install
 
 **Manual (recommended for a class):** clone this repo, then copy or

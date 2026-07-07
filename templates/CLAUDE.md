@@ -12,11 +12,19 @@ Work in this repository follows a brief → execute → verify → commit loop (
 
 Every unit of work in this repo follows the same loop:
 
-1. **Brief.** Before a session starts, write `briefs/<NNN>-<slug>.md` from `briefs/TEMPLATE.md`: `Want` (one sentence — what should be true after), `Purpose` (why it matters — the reason it's worth doing, not user-story "as a" framing), `Scope` (files/scripts/data expected to change), `Expected` (the checkable outcome — for a single run or analysis step, use `Given`/`When`/`Then`; for a decision or design question, describe the resolved decision instead). Session numbers are sequential and zero-padded; check `briefs/` and `brief-log.md` for the highest existing number before picking the next one.
-2. **Execute.** Start the session by referencing the brief file directly with `@briefs/<NNN>-<slug>.md` in your prompt to Claude Code — not by describing it in prose. This loads the brief's exact text into context instead of a paraphrase, so Claude works from what was actually written rather than a secondhand summary of it. Claude does the work described in the brief, bounded by its Scope.
+1. **Brief.** Before a session starts, write `briefs/<NNN>-<slug>.md` from `briefs/TEMPLATE.md`: `Want` (one sentence — what should be true after), `Purpose` (why it matters — the reason it's worth doing, not user-story "as a" framing), `Scope` (files/scripts/data expected to change), `Expected` (the checkable outcome — for a single run or analysis step, use `Given`/`When`/`Then`, tagging each `Then` line `[test]` or `[manual]`; for a decision or design question, describe the resolved decision instead). Session numbers are sequential and zero-padded; check `briefs/` and `brief-log.md` for the highest existing number before picking the next one.
+2. **Execute.** Start the session by referencing the brief file directly with `@briefs/<NNN>-<slug>.md` in your prompt to Claude Code — not by describing it in prose. This loads the brief's exact text into context instead of a paraphrase, so Claude works from what was actually written rather than a secondhand summary of it. Claude does the work described in the brief, bounded by its Scope. Claude does not retag `Expected` items during execution — the `[manual]`/`[test]` designation is set by the student at brief-writing time and stays fixed for the session.
 3. **Log.** Claude adds an entry to `brief-log.md` following its own schema (`#`, `Brief` link, `Expected` copied verbatim from the brief, a draft `Changed` field, and `Rationale` whenever the session made a nontrivial decision).
 4. **Verify.** Read the diff and edit/confirm `Changed` yourself. Do not treat Claude's draft of `Changed` as final — it's a proposal for you to correct.
 5. **One commit per session.** `brief-log.md` is staged in the same commit as the changed files — never split the log entry into a separate commit. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/): `type: description` or `type(scope): description` (e.g. `docs:`, `feat:`, `fix:`, `chore:`, `refactor:`) — pick the type that matches what the session actually did, not which file it happened to touch.
+
+## Manual review items
+
+Expected items tagged [manual] are not verified by Claude. In the
+brief-log draft, list these as "pending student review" — do not assert
+they are satisfied, do not describe or characterize the output on the
+student's behalf. [test] items may be reported as passing/failing based
+on actual test runs.
 
 ## Commands
 
