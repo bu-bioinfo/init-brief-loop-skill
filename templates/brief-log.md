@@ -16,7 +16,7 @@ committing. This is the verification step.
 | Brief    | Link to `briefs/<NNN>-<slug>.md` |
 | Expected | Copied from the brief verbatim, including `[test]`/`[manual]` tags — what should be true after this session |
 | Changed  | Student-confirmed list of what actually changed and why. `[test]` items are reported passing/failing based on an actual run; `[manual]` items are listed as "pending student review," never characterized |
-| Rationale | Required whenever the session made a nontrivial decision — a real tradeoff was weighed, not just requested work carried out. One paragraph: what was decided and what informed it. Omit when there was no decision to justify. |
+| Rationale | Required whenever the session made a nontrivial decision. One paragraph: what was decided and what informed it. When the decision was filling a gap the brief left open, say so explicitly — separate what the brief specified from what Claude decided on its own. Omit when there was no decision to justify. |
 | Fix      | — / manual / follow-up |
 
 ## Log
