@@ -48,13 +48,23 @@ Each `Expected` item in a brief is tagged `[test]` or `[manual]`:
 
 ## Install
 
-Download and extract this repo directly into your project's skills
-directory — no Node/npm required:
+Download and extract this repo directly into a skills directory — no
+Node/npm required. Choose one:
+
+**Per-project** (only available in this repo):
 
 ```sh
 mkdir -p <your-project>/.claude/skills/init-brief-loop
 curl -fsSL https://github.com/bu-bioinfo/init-brief-loop-skill/archive/refs/heads/main.tar.gz \
   | tar -xz -C <your-project>/.claude/skills/init-brief-loop --strip-components=1
+```
+
+**Global** (available in every project):
+
+```sh
+mkdir -p ~/.claude/skills/init-brief-loop
+curl -fsSL https://github.com/bu-bioinfo/init-brief-loop-skill/archive/refs/heads/main.tar.gz \
+  | tar -xz -C ~/.claude/skills/init-brief-loop --strip-components=1
 ```
 
 To update to the latest version later, just re-run the same command —
