@@ -40,14 +40,15 @@ being built. See `SKILL.md` for exactly what the skill does step by step.
 symlink it into your project's skills directory:
 
 ```sh
-git clone <this-repo-url> /tmp/init-brief-loop
+git clone git@github.com:bu-bioinfo/init-brief-loop-skill.git /tmp/init-brief-loop
 cp -r /tmp/init-brief-loop <your-project>/.claude/skills/init-brief-loop
+rm -rf <your-project>/.claude/skills/init-brief-loop/.git
 ```
 
 **Via the skills CLI**, if you want it in that ecosystem:
 
 ```sh
-npx skills add <your-gh-username>/init-brief-loop
+npx skills add bu-bioinfo/init-brief-loop-skill
 ```
 
 ## Use
